@@ -2,8 +2,7 @@ package com.example.mycar
 
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.pressImeActionButton
-import androidx.test.espresso.action.ViewActions.typeText
+import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -33,8 +32,21 @@ class ContestTest {
     }
 
     @Test
-    fun correct_name_shown_at_end_of_flow() {
+    fun correct_text_intially() {
         onView(withId(R.id.text_box)).check(matches(withText("test")))
-
     }
+
+    @Test
+    fun correct_text_after_clicked() {
+        onView(withId(R.id.test_button)).perform(click())
+        onView(withId(R.id.text_box)).check(matches(withText("woo hoo")))
+    }
+
+    @Test
+    fun correct_text_from_edit_box_after_clicked() {
+        onView(withId(R.id.edit_text)).perform(typeText("Steve"), pressImeActionButton())
+        onView(withId(R.id.test_button)).perform(click())
+        onView(withId(R.id.text_box)).check(matches(withText("Steve")))
+    }
+
 }

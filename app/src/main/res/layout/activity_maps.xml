@@ -12,16 +12,31 @@
         app:layout_constraintBottom_toTopOf="@+id/text_box"
         app:layout_constraintTop_toTopOf="parent"
         tools:context=".MapsActivity" />
+    <TextView
+        android:id="@+id/text_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/test"
+        app:layout_constraintBottom_toTopOf="@+id/test_button"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/test_button"
+        app:layout_constraintStart_toEndOf="@+id/text_label" />
 
     <TextView
         android:id="@+id/text_box"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/test"
-        android:text="@string/test"/>
+        android:text="@string/test"
+        app:layout_constraintBottom_toTopOf="@+id/test_button"
+        app:layout_constraintStart_toEndOf="@+id/edit_text" />
 
     <Button
-        android:id="@+id/test"
+        android:id="@+id/test_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

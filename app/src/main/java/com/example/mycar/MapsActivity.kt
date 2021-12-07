@@ -22,6 +22,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.testButton.setOnClickListener {
+            val text = binding.editText.text
+            val test = if (text.isEmpty()) {
+                "woo hoo"
+            } else text
+            binding.textBox.setText(test)
+        }
+
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
